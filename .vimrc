@@ -11,19 +11,29 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/home/lwq/.local/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=$HOME/.local/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('/home/lwq/.local/dein')
-  call dein#begin('/home/lwq/.local/dein')
+if dein#load_state($HOME . '/.local/dein')
+  call dein#begin($HOME . '/.local/dein')
 
   " Let dein manage dein
   " Required:
-  call dein#add('/home/lwq/.local/dein/repos/github.com/Shougo/dein.vim')
+  call dein#add($HOME . '/.local/dein/repos/github.com/Shougo/dein.vim')
 
   " Add or remove your plugins here like this:
-  "call dein#add('Shougo/neosnippet.vim')
-  "call dein#add('Shougo/neosnippet-snippets')
+  " call dein#add('Shougo/neosnippet.vim')
+  " call dein#add('Shougo/neosnippet-snippets')
+  call dein#add('wsdjeg/dein-ui.vim')
+  call dein#add('joshdick/onedark.vim')
+  call dein#add('sheerun/vim-polyglot')
+  call dein#add('itchyny/lightline.vim')
+  call dein#add('junegunn/fzf')
+  call dein#add('junegunn/fzf.vim')
+  call dein#add('dense-analysis/ale')
+  call dein#add('pseewald/vim-anyfold')
+  call dein#add('maralla/completor.vim')
+  call dein#add('nathanaelkane/vim-indent-guides')
 
   " Required:
   call dein#end()
@@ -33,19 +43,6 @@ endif
 " Required:
 filetype plugin indent on
 syntax enable
-
-
-" dein plugin installation
-call dein#add('wsdjeg/dein-ui.vim')
-call dein#add('joshdick/onedark.vim')
-call dein#add('sheerun/vim-polyglot')
-call dein#add('itchyny/lightline.vim')
-call dein#add('junegunn/fzf')
-call dein#add('junegunn/fzf.vim')
-call dein#add('dense-analysis/ale')
-call dein#add('pseewald/vim-anyfold')
-call dein#add('maralla/completor.vim')
-call dein#add('nathanaelkane/vim-indent-guides')
 
 " If you want to install not installed plugins on startup.
 " if dein#check_install()
