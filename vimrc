@@ -23,6 +23,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'yggdroot/indentline'
+Plug 'scrooloose/nerdtree'
 
 " utils
 Plug 'junegunn/fzf'
@@ -32,7 +33,8 @@ Plug 'konfekt/fastfold'
 Plug 'tmhedberg/simpylfold'
 
 " Linting
-Plug 'neomake/neomake'
+Plug 'w0rp/ale'
+Plug 'maralla/completor.vim'
 
 " Initialize plugin system
 call plug#end()
