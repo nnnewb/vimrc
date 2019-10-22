@@ -5,6 +5,7 @@
 "
 " cheers. for peace and love.
 
+" no vi compatible
 set nocompatible
 
 " terminal attributes
@@ -60,6 +61,25 @@ endif
 colorscheme OceanicNext
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Win32 GUI compatible
+"
+if (has('gui'))
+    " set pretty font
+    set guifont=consolas:h11
+    " no toolbar
+    set go-=T
+    " no menubar
+    set go-=m
+end
+
+if (has('win32'))
+    " set default file encoding
+    set fenc=utf-8
+    " set default buffer encoding
+    set enc=utf-8
+end
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " syntax & edit
 "
 filetype plugin indent on
@@ -96,8 +116,8 @@ nnoremap <leader><tab> :tabn<CR>
 nnoremap <leader>q :quit<CR>
 
 " ----------------------------- Search ---------------------------------------
-set incsearch " search as we type
-set hlsearch " highlight matches
+set incsearch   " search as we type
+set hlsearch    " highlight matches
 
 " ----------------------------- folding --------------------------------------
 filetype plugin indent on           " makesure filetype plugin & indent on
