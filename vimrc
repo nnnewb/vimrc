@@ -8,10 +8,6 @@
 " no vi compatible
 set nocompatible
 
-" terminal attributes
-set t_Co=256
-set termguicolors
-
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 
