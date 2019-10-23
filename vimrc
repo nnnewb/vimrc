@@ -106,10 +106,14 @@ set sidescroll=1
 
 " ----------------------------- Key binding ----------------------------------
 let mapleader=','
-nnoremap <leader>p :FZF<CR>
+nnoremap <leader>f :FZF<CR>
+" tabs control
 nnoremap <leader>t :tabnew<CR>
-nnoremap <leader><tab> :tabn<CR>
-nnoremap <leader>q :quit<CR>
+nnoremap <leader>n :tabn<CR>
+nnoremap <leader>p :tabp<CR>
+nnoremap <leader>c :tabc<CR>
+" save file
+nnoremap <leader>s :w<CR>
 
 " ----------------------------- Search ---------------------------------------
 set incsearch   " search as we type
@@ -123,6 +127,48 @@ set foldlevel=0                     " close all fold by default
 " ---------------------------- highlight -------------------------------------
 hi Comment cterm=None ctermbg=None
 
+" ---------------------------------- ale -------------------------------------
+nnoremap <F7> :ALEPrevious<CR>
+nnoremap <F8> :ALENext<CR>
+nnoremap <F9> :ALEFix<CR>
+let g:ale_fixers = {'python': ['yapf','isort']}
+
+" Linter settings (ale)
+let g:ale_set_highlights = 0
+let g:ale_sign_error = '•'
+let g:ale_sign_warning = '•'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_statusline_format = ['E•%d', 'W•%d', 'OK']
+" For a more fancy ale statusline
+function! ALEGetError()
+let l:res = ale#statusline#Status()
+if l:res ==# 'OK'
+    return ''
+else
+    let l:e_w = split(l:res)
+    if len(l:e_w) == 2 || match(l:e_w, 'E') > -1
+	return ' •' . matchstr(l:e_w[0], '\d\+') .' '
+    endif
+endif
+endfunction
+
+function! ALEGetWarning()
+let l:res = ale#statusline#Status()
+if l:res ==# 'OK'
+    return ''
+else
+    let l:e_w = split(l:res)
+    if len(l:e_w) == 2
+	return ' •' . matchstr(l:e_w[1], '\d\+')
+    elseif match(l:e_w, 'W') > -1
+	return ' •' . matchstr(l:e_w[0], '\d\+')
+    endif
+endif
+endfunction
+
+let g:ale_echo_msg_error_str = 'Error'
+let g:ale_echo_msg_warning_str = 'Warning'
+
 " ---------------------------- completor -------------------------------------
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -132,6 +178,4 @@ let g:completor_complete_options = 'menuone,noselect,preview'
 
 noremap <silent> <leader>d :call completor#do('definition')<CR>
 noremap <silent> <leader>c :call completor#do('doc')<CR>
-noremap <silent> <leader>f :call completor#do('format')<CR>
-noremap <silent> <leader>s :call completor#do('hover')<CR>
 
