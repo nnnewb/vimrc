@@ -106,7 +106,7 @@ set sidescroll=1
 
 " ----------------------------- Key binding ----------------------------------
 let mapleader=','
-nnoremap <leader>f :FZF<CR>
+nnoremap <leader>p :FZF<CR>
 nnoremap <leader>t :tabnew<CR>
 nnoremap <leader><tab> :tabn<CR>
 nnoremap <leader>q :quit<CR>
