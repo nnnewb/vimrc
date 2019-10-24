@@ -182,7 +182,7 @@ noremap <silent> <leader>c :call completor#do('doc')<CR>
 
 " ---------------------------- nerdtree --------------------------------------
 "  shortcut
-nnoremap <F10> :NERDTreeToggle
+nnoremap <F10> :NERDTreeToggle<CR>
 
 "  unicode symbol
 let g:NERDTreeIndicatorMapCustom = {
