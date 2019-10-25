@@ -26,11 +26,14 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " utils
 Plug 'junegunn/fzf'
 
-" language specific
+" python code folding
 Plug 'konfekt/fastfold'
 Plug 'tmhedberg/simpylfold'
 
-" Linting
+" logstash
+Plug 'elastic/logstash'
+
+" code linting
 Plug 'w0rp/ale'
 Plug 'maralla/completor.vim'
 
