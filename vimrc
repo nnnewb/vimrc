@@ -115,7 +115,7 @@ nnoremap <leader>f :FZF<CR>
 nnoremap <leader>t :tabnew<CR>
 nnoremap <leader>n :tabn<CR>
 nnoremap <leader>p :tabp<CR>
-nnoremap <leader>q :tabc<CR>
+nnoremap <leader>q :quit<CR>
 " save file
 nnoremap <leader>s :w<CR>
 
@@ -127,6 +127,14 @@ set hlsearch    " highlight matches
 filetype plugin indent on           " makesure filetype plugin & indent on
 syntax on                           " makesure syntax on
 set foldlevel=0                     " close all fold by default
+
+" ---------------------------- backup ----------------------------------------
+" no .orig file
+set backupdir=~/.vim/backup//
+" no .undo file
+set undodir=~/.vim/undo//
+" no .swp file
+set directory=~/.vim/swap//
 
 " ---------------------------- highlight -------------------------------------
 hi Comment cterm=None ctermbg=None
