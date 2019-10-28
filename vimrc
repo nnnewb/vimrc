@@ -115,7 +115,7 @@ nnoremap <leader>f :FZF<CR>
 nnoremap <leader>t :tabnew<CR>
 nnoremap <leader>n :tabn<CR>
 nnoremap <leader>p :tabp<CR>
-nnoremap <leader>c :tabc<CR>
+nnoremap <leader>q :tabc<CR>
 " save file
 nnoremap <leader>s :w<CR>
 
