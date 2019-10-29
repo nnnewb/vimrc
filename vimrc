@@ -129,6 +129,10 @@ syntax on                           " makesure syntax on
 set foldlevel=0                     " close all fold by default
 
 " ---------------------------- backup ----------------------------------------
+" silently create required directories
+silent execute '!mkdir '.expand('~').'/.vim/backup'
+silent execute '!mkdir '.expand('~').'/.vim/undo'
+silent execute '!mkdir '.expand('~').'/.vim/swap'
 " no .orig file
 set backupdir=~/.vim/backup//
 " no .undo file
