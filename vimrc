@@ -96,17 +96,18 @@ set laststatus=2
 set backspace=indent,eol,start
 
 " Spaces & Tabs
-set tabstop=4 " number of visual spaces per TAB
-set softtabstop=4 " number of spaces in tab when editing
+set tabstop=4       " number of visual spaces per TAB
+set softtabstop=4   " number of spaces in tab when editing
 set shiftwidth=4
-set expandtab " TABs are spaces
-set textwidth=80
+set expandtab       " TABs are spaces
 " linebreak & wrap & scroll
 set nowrap
 set nolinebreak
 set nolist
 set scrolloff=20
 set sidescroll=1
+" line width and ruler
+set textwidth=80
 
 " ----------------------------- Key binding ----------------------------------
 let mapleader=','
@@ -128,17 +129,10 @@ filetype plugin indent on           " makesure filetype plugin & indent on
 syntax on                           " makesure syntax on
 set foldlevel=0                     " close all fold by default
 
-" ---------------------------- backup ----------------------------------------
-" silently create required directories
-silent execute '!mkdir '.expand('~').'/.vim/backup'
-silent execute '!mkdir '.expand('~').'/.vim/undo'
-silent execute '!mkdir '.expand('~').'/.vim/swap'
-" no .orig file
-set backupdir=~/.vim/backup//
-" no .undo file
-set undodir=~/.vim/undo//
-" no .swp file
-set directory=~/.vim/swap//
+" ----------------------- disable swap files ---------------------------------
+set nobackup
+set noswapfile
+set noundofile
 
 " ---------------------------- highlight -------------------------------------
 hi Comment cterm=None ctermbg=None
