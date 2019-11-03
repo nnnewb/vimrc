@@ -25,7 +25,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " code browse
 Plug 'junegunn/fzf'
-Plug 'jremmen/vim-ripgrep'
 
 " python code folding
 Plug 'konfekt/fastfold'
@@ -111,7 +110,7 @@ set textwidth=80
 
 " ----------------------------- Key binding ----------------------------------
 let mapleader=','
-nnoremap <leader>f :FZF<CR>
+nnoremap <C-p> :FZF<CR>
 " tabs control
 nnoremap <leader>t :tabnew<CR>
 nnoremap <leader>n :tabn<CR>
