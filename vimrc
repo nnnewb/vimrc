@@ -23,12 +23,12 @@ Plug 'yggdroot/indentline'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
-" utils
+" code browse
 Plug 'junegunn/fzf'
+Plug 'jremmen/vim-ripgrep'
 
 " python code folding
 Plug 'konfekt/fastfold'
-Plug 'tmhedberg/simpylfold'
 
 " logstash
 Plug 'elastic/logstash'
@@ -127,7 +127,6 @@ set hlsearch    " highlight matches
 " ----------------------------- folding --------------------------------------
 filetype plugin indent on           " makesure filetype plugin & indent on
 syntax on                           " makesure syntax on
-set foldlevel=0                     " close all fold by default
 
 " ----------------------- disable swap files ---------------------------------
 set nobackup
