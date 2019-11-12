@@ -25,6 +25,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " code browse
 Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 
 " python code folding
 Plug 'konfekt/fastfold'
