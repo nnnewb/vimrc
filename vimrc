@@ -86,7 +86,6 @@ filetype plugin indent on
 syntax enable
 set modelines=1     " Modeline (allow comment contents in file set vim config)
 set number          " Line number
-set ruler           " Column number and row number
 set showcmd         " Show command in status line
 set cursorline      " highlight current line
 set wildmenu        " visual autocomplete for command menu
@@ -107,11 +106,12 @@ set nolist
 set scrolloff=20
 set sidescroll=1
 " line width and ruler
-set textwidth=80
+set tw=0
+set ruler
 
 " ----------------------------- Key binding ----------------------------------
 let mapleader=','
-nnoremap <C-p> :FZF<CR>
+nnoremap <C-p> :GFiles<CR>
 " tabs control
 nnoremap <leader>t :tabnew<CR>
 nnoremap <leader>n :tabn<CR>
@@ -119,6 +119,7 @@ nnoremap <leader>p :tabp<CR>
 nnoremap <leader>q :quit<CR>
 " save file
 nnoremap <leader>s :w<CR>
+nnoremap <C-s> :w<CR>
 
 " ----------------------------- Search ---------------------------------------
 set incsearch   " search as we type
@@ -156,7 +157,7 @@ if l:res ==# 'OK'
 else
     let l:e_w = split(l:res)
     if len(l:e_w) == 2 || match(l:e_w, 'E') > -1
-	return ' •' . matchstr(l:e_w[0], '\d\+') .' '
+    return ' •' . matchstr(l:e_w[0], '\d\+') .' '
     endif
 endif
 endfunction
@@ -168,9 +169,9 @@ if l:res ==# 'OK'
 else
     let l:e_w = split(l:res)
     if len(l:e_w) == 2
-	return ' •' . matchstr(l:e_w[1], '\d\+')
+    return ' •' . matchstr(l:e_w[1], '\d\+')
     elseif match(l:e_w, 'W') > -1
-	return ' •' . matchstr(l:e_w[0], '\d\+')
+    return ' •' . matchstr(l:e_w[0], '\d\+')
     endif
 endif
 endfunction
