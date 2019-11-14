@@ -112,6 +112,7 @@ set ruler
 " ----------------------------- Key binding ----------------------------------
 let mapleader=','
 nnoremap <C-p> :GFiles<CR>
+nnoremap <C-S-p> :Tags<CR>
 " tabs control
 nnoremap <leader>t :tabnew<CR>
 nnoremap <leader>n :tabn<CR>
@@ -119,7 +120,6 @@ nnoremap <leader>p :tabp<CR>
 nnoremap <leader>q :quit<CR>
 " save file
 nnoremap <leader>s :w<CR>
-nnoremap <C-s> :w<CR>
 
 " ----------------------------- Search ---------------------------------------
 set incsearch   " search as we type
