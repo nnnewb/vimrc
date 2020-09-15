@@ -27,16 +27,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 
-" python code folding
-Plug 'konfekt/fastfold'
-
-" logstash
-Plug 'elastic/logstash'
-
-" code linting
-Plug 'w0rp/ale'
-Plug 'maralla/completor.vim'
-
 " Initialize plugin system
 call plug#end()
 
