@@ -19,8 +19,7 @@ Plug 'mhartington/oceanic-next'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
-Plug 'yggdroot/indentline'
-Plug 'scrooloose/nerdtree'
+"Plug 'yggdroot/indentline'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " code browse
@@ -39,12 +38,13 @@ set cc=80
 " Theme
 syntax enable
 
+
 " for vim 7
 set t_Co=256
 set bg=dark
 
 " for vim 8
-if (has("termguicolors"))
+if (has("+termguicolors"))
     set termguicolors
 endif
 
