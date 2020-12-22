@@ -13,14 +13,17 @@ call plug#begin('~/.vim/plugged')
 
 " Color schemes
 Plug 'joshdick/onedark.vim'
-Plug 'mhartington/oceanic-next'
 
 " Visual interfaces
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
+Plug 'yggdroot/indentline'
 Plug 'scrooloose/nerdtree'
-"Plug 'yggdroot/indentline'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'sheerun/vim-polyglot'
+
+" programming language support
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " code browse
 Plug 'junegunn/fzf'
@@ -48,7 +51,7 @@ if (has("+termguicolors"))
     set termguicolors
 endif
 
-colorscheme OceanicNext
+colorscheme onedark
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Win32 GUI compatible
@@ -181,7 +184,7 @@ noremap <silent> <leader>c :call completor#do('doc')<CR>
 
 " ---------------------------- nerdtree --------------------------------------
 "  shortcut
-nnoremap <F10> :NERDTreeToggle<CR>
+nnoremap <leader>t :NERDTreeToggle<CR>
 
 "  unicode symbol
 let g:NERDTreeGitStatusIndicatorMapCustom = {
@@ -198,3 +201,7 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ }
 
 let g:NERDTreeGitStatusShowIgnored = 1
+
+" ============================= fzf ==========================================
+" shortcut
+nnoremap <leader>f :FZF<CR>
