@@ -1,10 +1,40 @@
-uninstall:
+install: install-vim install-tmux install-zsh
+
+uninstall: uninstall-vim uninstall-tmux uninstall-zsh
+
+uninstall-vim:
 	@rm -vf  $(HOME)/.vimrc
 	@rm -vrf $(HOME)/.vim
+
+uninstall-tmux:
 	@rm -vf  $(HOME)/.tmux.conf
 	@rm -vrf $(HOME)/.tmux-themepack
 
-install:
+uninstall-zsh:
+	@echo 'not implemented yet.'
+	@echo
+	@exit -1
+
+install-zsh:
+	@if [ -f ~/.zshrc ] || [ -d ~/.oh-my-zsh ]; then \
+		echo '=============================================='; \
+		echo 'To avoid accidently break your configuration, '; \
+		echo 'you need backup and uninstall current .zshrc, '; \
+		echo 'and .oh-my-zsh folder first.                  '; \
+		echo '=============================================='; \
+		echo ; \
+		exit -1; \
+	fi
+	@if [ ! -d /tmp/ohmyzsh ]; then \
+		git  clone https://github.com/ohmyzsh/ohmyzsh/ /tmp/ohmyzsh; \
+	fi
+	@bash /tmp/ohmyzsh/tools/install.sh
+	@zsh -c 'git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting'
+	@zsh -c 'git clone https://github.com/zsh-users/zsh-autosuggestions $${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions'
+	@sed -i 's/plugins=(/plugins=(zsh-syntax-highlighting zsh-autosuggestions/g' ~/.zshrc
+
+
+install-vim:
 	@if [ -f ~/.vimrc ]; then \
 		echo '=============================================='; \
 		echo 'To avoid accidently break your configuration, '; \
@@ -16,7 +46,8 @@ install:
 	fi
 	@ln -vsf $(shell pwd)/vimrc     $(HOME)/.vimrc
 	@ln -vsf $(shell pwd)/vim/      $(HOME)/.vim
-	
+
+install-tmux:
 	@if [ -f ~/.tmux.conf ]; then \
 		echo '=============================================='; \
 		echo 'To avoid accidently break your configuration, '; \
