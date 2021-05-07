@@ -22,6 +22,16 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'sheerun/vim-polyglot'
 
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" 插件支持
+" coc-json
+" coc-tsserver
+" coc-vimlsp
+" coc-jedi
+" coc-go
+" coc-clang-format-style-options
+" coc-yaml
+
 " programming language support
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
