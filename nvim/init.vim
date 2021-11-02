@@ -8,6 +8,9 @@ Plug 'mhinz/vim-startify'
 
 Plug 'scrooloose/syntastic'
 
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+# :CocInstall coc-vimlsp
+
 call plug#end()
 
 let g:airline_theme='molokai'
