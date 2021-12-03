@@ -11,17 +11,23 @@ set nocompatible
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 
-" Color schemes
-Plug 'joshdick/onedark.vim'
+" theme
+Plug 'morhetz/gruvbox'
 
-" Visual interfaces
+" syntax highlight
+Plug 'sheerun/vim-polyglot'
+
+" UI
+Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'yggdroot/indentline'
+
+" navigate
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'sheerun/vim-polyglot'
 
+" lsp and other programming features
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " 插件支持
 " coc-json
@@ -31,37 +37,27 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " coc-go
 " coc-clang-format-style-options
 " coc-yaml
-
-" programming language support
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
-" code browse
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
+" coc-lists
 
 " Initialize plugin system
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " User Interfaces
-set laststatus=2
-set nu
-set cc=80
+set cursorline     " 高亮当前行
+set laststatus=2   " 状态栏高度
+set number         " 开启行号
+set cc=80          " 行宽指示
 
 " Theme
-syntax enable
-
-
-" for vim 7
-set t_Co=256
-set bg=dark
+syntax enable          " 启用语法高亮
+colorscheme gruvbox    " 指定主题
+set bg=dark            " 不指定 bg 会导致终端下背景颜色出问题
 
 " for vim 8
 if (has("+termguicolors"))
     set termguicolors
 endif
-
-colorscheme onedark
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Win32 GUI compatible
@@ -86,59 +82,57 @@ end
 " syntax & edit
 "
 filetype plugin indent on
-syntax enable
-set modelines=1     " Modeline (allow comment contents in file set vim config)
-set number          " Line number
+set nomodeline      " 不要读 modeline
 set showcmd         " Show command in status line
-set cursorline      " highlight current line
 set wildmenu        " visual autocomplete for command menu
 set showmatch       " highlight matching [({})]
 set noshowmode
 set laststatus=2
-set backspace=indent,eol,start
+
+" editing
+set backspace=indent,eol,start " 兼容 vi
 
 " Spaces & Tabs
 set tabstop=4       " number of visual spaces per TAB
 set softtabstop=4   " number of spaces in tab when editing
 set shiftwidth=4
 set expandtab       " TABs are spaces
+
 " linebreak & wrap & scroll
 set nowrap
 set nolinebreak
 set nolist
-set scrolloff=20
+set scrolloff=10
 set sidescroll=1
+
 " line width and ruler
 set tw=0
 set ruler
 
-" ----------------------------- Key binding ----------------------------------
-let mapleader=','
-nnoremap <C-p> :GFiles<CR>
-nnoremap <C-S-p> :Tags<CR>
-" tabs control
-nnoremap <leader>t :tabnew<CR>
-nnoremap <leader>n :tabn<CR>
-nnoremap <leader>p :tabp<CR>
-nnoremap <leader>q :quit<CR>
-" save file
-nnoremap <leader>s :w<CR>
+" file encoding
+set encoding=utf-8
+set fileencoding=utf-8
 
-" ----------------------------- Search ---------------------------------------
+" search
 set incsearch   " search as we type
 set hlsearch    " highlight matches
 
-" ----------------------------- folding --------------------------------------
-filetype plugin indent on           " makesure filetype plugin & indent on
-syntax on                           " makesure syntax on
+" hi Comment cterm=None ctermbg=None
 
-" ----------------------- disable swap files ---------------------------------
+" swapfile
 set nobackup
 set noswapfile
 set noundofile
 
-" ---------------------------- highlight -------------------------------------
-hi Comment cterm=None ctermbg=None
+" ----------------------------- Key binding ----------------------------------
+let mapleader=','
+
+" goto file
+nnoremap <C-p> :CocList files<CR>
+
+" tabs control
+nnoremap <C-n> :tabnew<CR>
+nnoremap <S-tab> :tabn<CR>
 
 " ---------------------------- nerdtree --------------------------------------
 "  shortcut
@@ -159,10 +153,6 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ }
 
 let g:NERDTreeGitStatusShowIgnored = 1
-
-" ============================= fzf ==========================================
-" shortcut
-nnoremap <leader>f :FZF<CR>
 
 " ============================= coc ==========================================
 
