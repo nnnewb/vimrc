@@ -25,13 +25,10 @@ install-zsh:
 		echo ; \
 		exit -1; \
 	fi
-	@if [ ! -d /tmp/ohmyzsh ]; then \
-		git  clone https://github.com/ohmyzsh/ohmyzsh/ /tmp/ohmyzsh; \
-	fi
-	@bash /tmp/ohmyzsh/tools/install.sh
-	@zsh -c 'git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting'
-	@zsh -c 'git clone https://github.com/zsh-users/zsh-autosuggestions $${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions'
-	@sed -i 's/plugins=(/plugins=(zsh-syntax-highlighting zsh-autosuggestions/g' ~/.zshrc
+	@REMOTE=https://ghproxy.com/github.com/ohmyzsh/ohmyzsh/ sh -c "$(wget https://ghproxy.com/raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+	@zsh -c 'git clone https://ghproxy.com/github.com/zsh-users/zsh-syntax-highlighting.git $${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting'
+	@zsh -c 'git clone https://ghproxy.com/github.com/zsh-users/zsh-autosuggestions $${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions'
+	@sed -i 's/plugins=(/plugins=(zsh-syntax-highlighting zsh-autosuggestions /g' ~/.zshrc
 
 
 install-vim:
