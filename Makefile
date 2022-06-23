@@ -25,7 +25,7 @@ install-docker-debian:
 	echo "deb [arch=$$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/debian $$(lsb_release -cs) stable" \
 		| sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 	sudo apt-get update
-	sudo apt-get install docker-ce
+	sudo apt-get install -y docker-ce
 
 install-zsh:
 	@if [ -f ~/.zshrc ] || [ -d ~/.oh-my-zsh ]; then \
