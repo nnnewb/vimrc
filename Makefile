@@ -19,7 +19,7 @@ install-fnm:
 	curl -fsSL https://fnm.vercel.app/install | sed 's/github\.com/ghproxy.com\/github.com/g' | bash
 
 install-docker-debian:
-	sudo apt-get remove -y docker docker-engine docker.io containerd runc
+	sudo apt-get remove -y docker docker-engine docker.io containerd runc || true
 	sudo apt-get install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common
 	curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 	echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/debian $(lsb_release -cs) stable" \
