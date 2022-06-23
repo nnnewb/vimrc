@@ -12,23 +12,23 @@ set nocompatible
 call plug#begin('~/.vim/plugged')
 
 " theme
-Plug 'morhetz/gruvbox'
+Plug 'https://ghproxy.com/github.com/morhetz/gruvbox'
 
 " syntax highlight
-Plug 'sheerun/vim-polyglot'
+Plug 'https://ghproxy.com/github.com/sheerun/vim-polyglot'
 
 " UI
-Plug 'ryanoasis/vim-devicons'
-Plug 'vim-airline/vim-airline'
-Plug 'airblade/vim-gitgutter'
-Plug 'yggdroot/indentline'
+Plug 'https://ghproxy.com/github.com/ryanoasis/vim-devicons'
+Plug 'https://ghproxy.com/github.com/vim-airline/vim-airline'
+Plug 'https://ghproxy.com/github.com/airblade/vim-gitgutter'
+Plug 'https://ghproxy.com/github.com/yggdroot/indentline'
 
 " navigate
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'https://ghproxy.com/github.com/scrooloose/nerdtree'
+Plug 'https://ghproxy.com/github.com/Xuyuanp/nerdtree-git-plugin'
 
 " lsp and other programming features
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'https://ghproxy.com/github.com/neoclide/coc.nvim', {'branch': 'release'}
 " 插件支持
 " coc-json
 " coc-tsserver

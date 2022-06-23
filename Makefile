@@ -25,7 +25,7 @@ install-zsh:
 		echo ; \
 		exit -1; \
 	fi
-	@REMOTE=https://ghproxy.com/github.com/ohmyzsh/ohmyzsh/ sh -c "$(wget https://ghproxy.com/raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+	wget https://ghproxy.com/raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O - | REMOTE=https://ghproxy.com/github.com/ohmyzsh/ohmyzsh/ sh
 	@zsh -c 'git clone https://ghproxy.com/github.com/zsh-users/zsh-syntax-highlighting.git $${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting'
 	@zsh -c 'git clone https://ghproxy.com/github.com/zsh-users/zsh-autosuggestions $${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions'
 	@sed -i 's/plugins=(/plugins=(zsh-syntax-highlighting zsh-autosuggestions /g' ~/.zshrc
@@ -56,6 +56,6 @@ install-tmux:
 	fi
 	@ln -vsf $(shell pwd)/tmux.conf $(HOME)/.tmux.conf
 	@if [ ! -d ~/.tmux-themepack ]; then \
-		git clone https://github.com/jimeh/tmux-themepack.git ~/.tmux-themepack; \
+		git clone https://ghproxy.com/github.com/jimeh/tmux-themepack.git ~/.tmux-themepack; \
 	fi
 
