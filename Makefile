@@ -15,6 +15,9 @@ uninstall-zsh:
 	@echo
 	@exit -1
 
+install-fnm:
+	curl -fsSL https://fnm.vercel.app/install | sed 's/github\.com/ghproxy.com\/github.com/g' | bash
+
 install-zsh:
 	@if [ -f ~/.zshrc ] || [ -d ~/.oh-my-zsh ]; then \
 		echo '=============================================='; \
